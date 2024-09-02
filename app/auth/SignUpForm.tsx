@@ -36,15 +36,14 @@ const SignUpForm = () => {
   })
 
   async function onSubmit(values: z.infer<typeof signUpSchema>) {
+    console.log('On client: ', values)
     const res = await signUp(values)
-    console.log(res)
-    // if (res.success) {
-    //   toast.success('Account created successfully')
-    //   router.push('/dashboard')
-    // } else {
-    //   toast.error(res.error)
-    // }
-    console.log(values)
+    if (res.success) {
+      toast.success('Account created successfully')
+      // router.push('/dashboard')
+    } else {
+      toast.error(res.error)
+    }
   }
   return (
     <Card className='min-w-[500px]'>
