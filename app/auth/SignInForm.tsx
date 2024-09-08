@@ -16,7 +16,7 @@ import {
 import { z } from "zod"
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-// import { signIn } from './auth.action'
+import { signIn } from '@/actions/auth'
 import { signInSchema } from '@/lib/zodschema/User'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
@@ -32,13 +32,13 @@ const SignInForm = () => {
   })
 
   async function onSubmit(values: z.infer<typeof signInSchema>) {
-    // const res = await signIn(values)
-    // if (res.success) {
-    //   toast.success('Login successful')
-    //   router.push('/dashboard')
-    // } else {
-    //   toast.error(res.error)
-    // }
+    const res = await signIn(values)
+    if (res.success) {
+      toast.success('Login successful')
+      router.push('/dashboard')
+    } else {
+      toast.error(res.error)
+    }
     console.log(values)
   }
   return (

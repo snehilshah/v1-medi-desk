@@ -40,7 +40,7 @@ const SignUpForm = () => {
     const res = await signUp(values)
     if (res.success) {
       toast.success('Account created successfully')
-      // router.push('/dashboard')
+      router.push('/dashboard')
     } else {
       toast.error(res.error)
     }
