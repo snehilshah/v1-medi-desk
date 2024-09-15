@@ -23,8 +23,8 @@ interface FormStepOneProps {
 
 function FormStepOne({ form, formStep }: FormStepOneProps) {
 	return (
-		<div>
-			<div className="flex gap-6">
+		<div className="flex flex-col gap-4 w-[900px]">
+			<div className="flex flex-1 gap-12">
 				{/* first name */}
 				<FormField
 					control={form.control}
@@ -54,47 +54,49 @@ function FormStepOne({ form, formStep }: FormStepOneProps) {
 					)}
 				/>
 			</div>
-			{/* email */}
-			<FormField
-				control={form.control}
-				name="email"
-				render={({ field }) => (
-					<FormItem>
-						<FormLabel>Email</FormLabel>
-						<FormControl>
-							<Input placeholder="Enter your email" {...field} />
-						</FormControl>
-						<FormMessage />
-					</FormItem>
-				)}
-			/>
-			{/* city */}
-			<FormField
-				control={form.control}
-				name="city"
-				render={({ field }) => (
-					<FormItem>
-						<FormLabel>Select City</FormLabel>
-						<Select onValueChange={field.onChange} defaultValue={field.value}>
+			<div className="flex gap-12">
+				{/* email */}
+				<FormField
+					control={form.control}
+					name="email"
+					render={({ field }) => (
+						<FormItem className="flex-1">
+							<FormLabel>Email</FormLabel>
 							<FormControl>
-								<SelectTrigger>
-									<SelectValue placeholder="Select your current city" />
-								</SelectTrigger>
+								<Input type="email" {...field} />
 							</FormControl>
-							<SelectContent>
-								{["Mumbai", "Delhi", "Pune", "Banglore"].map((city) => {
-									return (
-										<SelectItem value={city.toString()} key={city}>
-											{city}
-										</SelectItem>
-									);
-								})}
-							</SelectContent>
-						</Select>
-						<FormMessage />
-					</FormItem>
-				)}
-			/>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				{/* city */}
+				<FormField
+					control={form.control}
+					name="city"
+					render={({ field }) => (
+						<FormItem className="flex-1">
+							<FormLabel>Select City</FormLabel>
+							<Select onValueChange={field.onChange} defaultValue={field.value}>
+								<FormControl>
+									<SelectTrigger>
+										<SelectValue placeholder="Select your current city" />
+									</SelectTrigger>
+								</FormControl>
+								<SelectContent>
+									{["Mumbai", "Delhi", "Pune", "Banglore"].map((city) => {
+										return (
+											<SelectItem value={city.toString()} key={city}>
+												{city}
+											</SelectItem>
+										);
+									})}
+								</SelectContent>
+							</Select>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+			</div>
 		</div>
 	);
 }

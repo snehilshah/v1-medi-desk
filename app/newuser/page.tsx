@@ -91,11 +91,13 @@ export default function Home() {
 							>
 								<FormStepTwo form={form} formStep={formStep} />
 							</motion.div>
-							<FormButtons
-								form={form}
-								formStep={formStep}
-								setFormStep={setFormStep}
-							/>
+							<div className="mt-6">
+                <FormButtons
+                  form={form}
+                  formStep={formStep}
+                  setFormStep={setFormStep}
+                />
+              </div>
 						</form>
 					</Form>
 				</CardContent>
