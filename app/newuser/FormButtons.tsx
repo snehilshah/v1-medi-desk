@@ -26,22 +26,27 @@ function FormButtons({ form, formStep, setFormStep }: FormButtonsProps) {
 				className={cn({
 					hidden: formStep == 1,
 				})}
-				onClick={() => {
-					form.trigger(["firstName", "lastName", "email", "passingYear"]);
+				onClick={async () => {
+					await form.trigger(["firstName", "lastName", "email", "age"]);
 					const emailState = form.getFieldState("firstName");
-					const nameState = form.getFieldState("lastName");
-					const yearState = form.getFieldState("email");
+					const firstNameState = form.getFieldState("firstName");
+					const lastNameState = form.getFieldState("lastName");
+					const ageState = form.getFieldState("age");
 
 					if (!emailState.isDirty || emailState.invalid) {
 						console.log("emailState", emailState);
 						return;
 					}
-					if (!nameState.isDirty || nameState.invalid) {
-						console.log("nameState", nameState);
+					if (!firstNameState.isDirty || firstNameState.invalid) {
+						console.log("firstNameState", firstNameState);
 						return;
 					}
-					if (!yearState.isDirty || yearState.invalid) {
-						console.log("yearState", yearState);
+					if (!lastNameState.isDirty || lastNameState.invalid) {
+						console.log("lastNameState", lastNameState);
+						return;
+					}
+					if (ageState.invalid) {
+						console.log("ageState", ageState);
 						return;
 					}
 

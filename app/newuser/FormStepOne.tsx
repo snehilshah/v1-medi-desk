@@ -69,6 +69,19 @@ function FormStepOne({ form, formStep }: FormStepOneProps) {
 						</FormItem>
 					)}
 				/>
+				<FormField
+					control={form.control}
+					name="age"
+					render={({ field }) => (
+						<FormItem className="flex-1">
+							<FormLabel>Age</FormLabel>
+							<FormControl>
+								<Input type="number" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
 				{/* city */}
 				<FormField
 					control={form.control}

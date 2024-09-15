@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-import {
-	Form,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { motion } from "framer-motion";
 import {
 	Card,
@@ -35,7 +33,6 @@ export default function Home() {
 			lastName: "",
 			email: "",
 			password: "",
-			passingYear: "",
 			confirmPassword: "",
 		},
 	});
@@ -92,12 +89,12 @@ export default function Home() {
 								<FormStepTwo form={form} formStep={formStep} />
 							</motion.div>
 							<div className="mt-6">
-                <FormButtons
-                  form={form}
-                  formStep={formStep}
-                  setFormStep={setFormStep}
-                />
-              </div>
+								<FormButtons
+									form={form}
+									formStep={formStep}
+									setFormStep={setFormStep}
+								/>
+							</div>
 						</form>
 					</Form>
 				</CardContent>
