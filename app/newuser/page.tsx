@@ -28,6 +28,7 @@ import { ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import FormStepOne from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";
+import FormButtons from "./FormButtons";
 
 type Input = z.infer<typeof registerSchema>;
 
@@ -97,65 +98,11 @@ export default function Home() {
 							>
 								<FormStepTwo form={form} formStep={formStep} />
 							</motion.div>
-							<div className="flex gap-2">
-								<Button
-									type="submit"
-									className={cn({
-										hidden: formStep == 0,
-									})}
-								>
-									Submit
-								</Button>
-								<Button
-									type="button"
-									variant={"default"}
-									className={cn({
-										hidden: formStep == 1,
-									})}
-									onClick={() => {
-										form.trigger([
-											"firstName",
-											"lastName",
-											"email",
-											"passingYear",
-										]);
-										const emailState = form.getFieldState("firstName");
-										const nameState = form.getFieldState("lastName");
-										const yearState = form.getFieldState("email");
-
-										if (!emailState.isDirty || emailState.invalid) {
-											console.log("emailState", emailState);
-											return;
-										}
-										if (!nameState.isDirty || nameState.invalid) {
-											console.log("nameState", nameState);
-											return;
-										}
-										if (!yearState.isDirty || yearState.invalid) {
-											console.log("yearState", yearState);
-											return;
-										}
-
-										setFormStep(1);
-										console.log("formStep", formStep);
-									}}
-								>
-									Next Step
-									<ArrowRight className="w-4 h-4 ml-2" />
-								</Button>
-								<Button
-									type="button"
-									variant={"destructive"}
-									onClick={() => {
-										setFormStep(0);
-									}}
-									className={cn({
-										hidden: formStep == 0,
-									})}
-								>
-									Go Back
-								</Button>
-							</div>
+							<FormButtons
+								form={form}
+								formStep={formStep}
+								setFormStep={setFormStep}
+							/>
 						</form>
 					</Form>
 				</CardContent>
