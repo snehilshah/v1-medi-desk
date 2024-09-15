@@ -1,12 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import React from "react";
 import {
 	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
 } from "@/components/ui/form";
 import { motion } from "framer-motion";
 import {
@@ -22,9 +17,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema } from "@/lib/zodschema/User";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import FormStepOne from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";

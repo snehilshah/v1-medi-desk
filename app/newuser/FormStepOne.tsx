@@ -1,17 +1,11 @@
 "use client";
-import { Inter } from "next/font/google";
-import { Button } from "@/components/ui/button";
 import {
-	Form,
 	FormControl,
 	FormField,
 	FormItem,
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
-import { motion } from "framer-motion";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
 	Select,
 	SelectContent,
@@ -20,9 +14,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 
-import { registerSchema } from "@/lib/zodschema/User";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 
 interface FormStepOneProps {
 	form: any;
